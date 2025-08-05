@@ -33,8 +33,11 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
+      # Install pnpm
+      - run: npm install -g pnpm
+
       - run: pnpm install
-      - run: npx cypress install
+      - run: pnpm cypress install
 
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: npx nx-cloud record -- echo Hello World
