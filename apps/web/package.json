@@ -17,5 +17,17 @@
     "@types/node": "^20.0.0",
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0"
+  },
+  "nx": {
+    "targets": {
+      "serve-static": {
+        "executor": "@nx/web:file-server",
+        "options": {
+          "buildTarget": "build",
+          "staticFilePath": "apps/web/build",
+          "spa": true
+        }
+      }
+    }
   }
 }

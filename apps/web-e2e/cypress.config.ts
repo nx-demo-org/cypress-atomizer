@@ -7,10 +7,10 @@ export default defineConfig({
       cypressDir: 'src',
       bundler: 'vite',
       webServerCommands: {
-        default: 'npx nx run @cypress-atomizer/web:dev',
-        production: 'npx nx run @cypress-atomizer/web:dev',
+        default: 'npx nx run web:dev',
+        production: 'npx nx run web-e2e:dev',
       },
-      ciWebServerCommand: 'npx nx run @cypress-atomizer/web:dev',
+      ciWebServerCommand: 'npx nx run web:serve-static',
       ciBaseUrl: 'http://localhost:4200',
     }),
     baseUrl: 'http://localhost:4200',
