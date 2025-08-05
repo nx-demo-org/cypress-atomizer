@@ -13,8 +13,6 @@ permissions:
 jobs:
   main:
     runs-on: ubuntu-latest
-    env:
-      NX_CLOUD_API: https://staging.nx.app
     steps:
       - uses: actions/checkout@v4
         with:
