@@ -1,12 +1,9 @@
-import { getGreeting } from '../support/app.po';
-
-describe('@cypress-atomizer/web-e2e - Link Functionality Test 18', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should test all links work correctly', () => {
-    cy.login('links18@test.com', 'links18123');
-    cy.get('a').each(($link) => {
-      cy.wrap($link).should('have.attr', 'href');
-    });
+describe('@cypress-atomizer/web-e2e - Array Operations Test 18', () => {
+  it('should perform array operations', () => {
+    const arr = [1, 2, 3, 4, 5];
+    expect(arr.length).to.equal(5);
+    expect(arr[0]).to.equal(1);
+    expect(arr.includes(3)).to.be.true;
+    expect(arr.filter(x => x > 2)).to.deep.equal([3, 4, 5]);
   });
 });

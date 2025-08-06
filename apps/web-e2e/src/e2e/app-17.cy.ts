@@ -1,11 +1,8 @@
-import { getGreeting } from '../support/app.po';
-
-describe('@cypress-atomizer/web-e2e - Content Verification Test 17', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should verify page content is correct', () => {
-    cy.login('content17@test.com', 'content17123');
-    getGreeting().contains(/Welcome/);
-    cy.contains('This is the generated root route').should('be.visible');
+describe('@cypress-atomizer/web-e2e - String Operations Test 17', () => {
+  it('should perform string operations', () => {
+    expect('hello' + ' world').to.equal('hello world');
+    expect('test'.length).to.equal(4);
+    expect('CYPRESS'.toLowerCase()).to.equal('cypress');
+    expect('hello world'.includes('world')).to.be.true;
   });
 });

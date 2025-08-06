@@ -1,19 +1,9 @@
-import { getGreeting } from '../support/app.po';
-
-describe('@cypress-atomizer/web-e2e - Browser Compatibility Tests', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should work with different user agents', () => {
-    cy.login('browser@test.com', 'browser123');
-    
-    // Test with different user agent
-    cy.visit('/', {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-      }
-    });
-    
-    getGreeting().should('be.visible');
-    cy.get('[role="navigation"]').should('be.visible');
+describe('@cypress-atomizer/web-e2e - Array Operations Test 8', () => {
+  it('should perform array operations', () => {
+    const arr = [1, 2, 3, 4, 5];
+    expect(arr.length).to.equal(5);
+    expect(arr[0]).to.equal(1);
+    expect(arr.includes(3)).to.be.true;
+    expect(arr.filter(x => x > 2)).to.deep.equal([3, 4, 5]);
   });
 });

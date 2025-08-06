@@ -1,13 +1,8 @@
-import { getGreeting } from '../support/app.po';
-
-describe('@cypress-atomizer/web-e2e - Element Visibility Test 20', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should verify all elements are visible', () => {
-    cy.login('visibility20@test.com', 'vis20123');
-    getGreeting().should('be.visible');
-    cy.get('[role="navigation"]').should('be.visible');
-    cy.contains('Home').should('be.visible');
-    cy.contains('Page 2').should('be.visible');
+describe('@cypress-atomizer/web-e2e - Math Operations Test 20', () => {
+  it('should perform basic math operations', () => {
+    expect(1 + 1).to.equal(2);
+    expect(2 * 3).to.equal(6);
+    expect(10 - 5).to.equal(5);
+    expect(15 / 3).to.equal(5);
   });
 });

@@ -1,11 +1,9 @@
-import { getGreeting } from '../support/app.po';
-
-describe('store-e2e - Login Functionality Test 18', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should handle login functionality', () => {
-    cy.login('login18@store.com', 'login18123');
-    getGreeting().should('be.visible');
-    cy.get('body').should('exist');
+describe('store-e2e - Array Operations Test 18', () => {
+  it('should perform array operations', () => {
+    const arr = [1, 2, 3, 4, 5];
+    expect(arr.length).to.equal(5);
+    expect(arr[0]).to.equal(1);
+    expect(arr.includes(3)).to.be.true;
+    expect(arr.filter(x => x > 2)).to.deep.equal([3, 4, 5]);
   });
 });

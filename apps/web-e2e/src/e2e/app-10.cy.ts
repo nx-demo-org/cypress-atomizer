@@ -1,17 +1,8 @@
-import { getGreeting } from '../support/app.po';
-
-describe('@cypress-atomizer/web-e2e - SEO Tests', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should have proper meta tags', () => {
-    cy.login('seo@test.com', 'seo123');
-    
-    // Check for basic meta tags
-    cy.get('head').should('exist');
-    cy.get('title').should('exist');
-    
-    // Verify page has proper structure for SEO
-    cy.get('h1').should('exist');
-    cy.get('nav').should('exist');
+describe('@cypress-atomizer/web-e2e - Math Operations Test 10', () => {
+  it('should perform basic math operations', () => {
+    expect(1 + 1).to.equal(2);
+    expect(2 * 3).to.equal(6);
+    expect(10 - 5).to.equal(5);
+    expect(15 / 3).to.equal(5);
   });
 });

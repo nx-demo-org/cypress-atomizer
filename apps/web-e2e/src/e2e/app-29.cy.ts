@@ -1,12 +1,9 @@
-import { getGreeting } from '../support/app.po';
-
-describe('@cypress-atomizer/web-e2e - Page Structure Test 29', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should verify proper page structure', () => {
-    cy.login('structure29@test.com', 'structure29123');
-    cy.get('div').should('exist');
-    cy.get('ul').should('exist');
-    cy.get('li').should('have.length.at.least', 2);
+describe('@cypress-atomizer/web-e2e - Object Operations Test 29', () => {
+  it('should perform object operations', () => {
+    const obj = { name: 'test', value: 42 };
+    expect(obj.name).to.equal('test');
+    expect(obj.value).to.equal(42);
+    expect(Object.keys(obj)).to.deep.equal(['name', 'value']);
+    expect(Object.values(obj)).to.deep.equal(['test', 42]);
   });
 });

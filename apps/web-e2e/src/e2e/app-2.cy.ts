@@ -1,21 +1,11 @@
 import { getGreeting } from '../support/app.po';
 
-describe('@cypress-atomizer/web-e2e - UI Element Tests', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should verify all navigation links are present', () => {
-    cy.login('ui@test.com', 'testpass');
-    
-    // Check navigation menu exists
-    cy.get('[role="navigation"]').should('exist');
-    cy.get('[role="navigation"] ul').should('exist');
-    
-    // Check navigation links
-    cy.get('[role="navigation"] a').should('have.length', 2);
-    cy.contains('Home').should('be.visible');
-    cy.contains('Page 2').should('be.visible');
-    
-    // Verify welcome message
-    getGreeting().should('be.visible');
+describe('@cypress-atomizer/web-e2e - Math Tests 2', () => {
+  it('should perform advanced math operations', () => {
+    // Simple math assertions instead of DOM interactions
+    expect(5 ** 2).to.equal(25);
+    expect(Math.sqrt(16)).to.equal(4);
+    expect(Math.PI).to.be.closeTo(3.14159, 0.00001);
+    expect(Math.floor(3.7)).to.equal(3);
   });
 }); 

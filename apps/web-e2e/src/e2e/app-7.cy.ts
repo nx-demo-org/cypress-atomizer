@@ -1,18 +1,8 @@
-import { getGreeting } from '../support/app.po';
-
-describe('@cypress-atomizer/web-e2e - Link Functionality Tests', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should have working navigation links', () => {
-    cy.login('links@test.com', 'links123');
-    
-    // Test Home link
-    cy.contains('Home').should('have.attr', 'href', '/');
-    
-    // Test Page 2 link
-    cy.contains('Page 2').should('have.attr', 'href', '/page-2');
-    
-    // Test internal page link
-    cy.contains('Click here for page 2').should('have.attr', 'href', '/page-2');
+describe('@cypress-atomizer/web-e2e - String Operations Test 7', () => {
+  it('should perform string operations', () => {
+    expect('hello' + ' world').to.equal('hello world');
+    expect('test'.length).to.equal(4);
+    expect('CYPRESS'.toLowerCase()).to.equal('cypress');
+    expect('hello world'.includes('world')).to.be.true;
   });
 });

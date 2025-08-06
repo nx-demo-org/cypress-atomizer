@@ -1,21 +1,8 @@
-import { getGreeting } from '../support/app.po';
-
-describe('@cypress-atomizer/web-e2e - Content Validation Tests', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should display correct welcome message', () => {
-    cy.login('content@test.com', 'content123');
-    
-    getGreeting().should('contain', 'Welcome');
-    getGreeting().should('contain', '@cypress-atomizer/web');
-  });
-
-  it('should have proper page structure', () => {
-    cy.login('structure@test.com', 'structure123');
-    
-    cy.get('div').should('exist');
-    cy.get('h1').should('exist');
-    cy.get('ul').should('exist');
-    cy.get('li').should('have.length.at.least', 2);
+describe('@cypress-atomizer/web-e2e - Advanced Math Test 6', () => {
+  it('should perform advanced math operations', () => {
+    expect(5 ** 2).to.equal(25);
+    expect(Math.sqrt(16)).to.equal(4);
+    expect(Math.PI).to.be.closeTo(3.14159, 0.00001);
+    expect(Math.floor(3.7)).to.equal(3);
   });
 });

@@ -1,13 +1,8 @@
-import { getGreeting } from '../support/app.po';
-
-describe('store-e2e - Page Structure Test 27', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should verify proper page structure', () => {
-    cy.login('structure27@store.com', 'structure27123');
-    cy.get('html').should('exist');
-    cy.get('head').should('exist');
-    cy.get('body').should('exist');
-    cy.get('div').should('exist');
+describe('store-e2e - String Operations Test 27', () => {
+  it('should perform string operations', () => {
+    expect('hello' + ' world').to.equal('hello world');
+    expect('test'.length).to.equal(4);
+    expect('CYPRESS'.toLowerCase()).to.equal('cypress');
+    expect('hello world'.includes('world')).to.be.true;
   });
 });

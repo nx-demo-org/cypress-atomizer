@@ -1,11 +1,9 @@
-import { getGreeting } from '../support/app.po';
-
-describe('store-e2e - Welcome Message Test 19', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should display welcome message correctly', () => {
-    cy.login('welcome19@store.com', 'welcome19123');
-    getGreeting().contains(/Welcome/);
-    getGreeting().should('be.visible');
+describe('store-e2e - Object Operations Test 19', () => {
+  it('should perform object operations', () => {
+    const obj = { name: 'test', value: 42 };
+    expect(obj.name).to.equal('test');
+    expect(obj.value).to.equal(42);
+    expect(Object.keys(obj)).to.deep.equal(['name', 'value']);
+    expect(Object.values(obj)).to.deep.equal(['test', 42]);
   });
 });

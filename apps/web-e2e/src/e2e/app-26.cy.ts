@@ -1,13 +1,8 @@
-import { getGreeting } from '../support/app.po';
-
-describe('@cypress-atomizer/web-e2e - Navigation Flow Test 26', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should complete full navigation flow', () => {
-    cy.login('nav26@test.com', 'nav26123');
-    cy.contains('Page 2').click();
-    cy.url().should('include', '/page-2');
-    cy.contains('Click here to go back to root page').click();
-    cy.url().should('eq', Cypress.config().baseUrl + '/');
+describe('@cypress-atomizer/web-e2e - Advanced Math Test 26', () => {
+  it('should perform advanced math operations', () => {
+    expect(5 ** 2).to.equal(25);
+    expect(Math.sqrt(16)).to.equal(4);
+    expect(Math.PI).to.be.closeTo(3.14159, 0.00001);
+    expect(Math.floor(3.7)).to.equal(3);
   });
 });

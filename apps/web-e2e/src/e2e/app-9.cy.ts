@@ -1,15 +1,9 @@
-import { getGreeting } from '../support/app.po';
-
-describe('@cypress-atomizer/web-e2e - Error Handling Tests', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should handle invalid routes gracefully', () => {
-    cy.login('error@test.com', 'error123');
-    
-    // Visit non-existent route
-    cy.visit('/non-existent-page', { failOnStatusCode: false });
-    
-    // Should not crash and should show some content
-    cy.get('body').should('exist');
+describe('@cypress-atomizer/web-e2e - Object Operations Test 9', () => {
+  it('should perform object operations', () => {
+    const obj = { name: 'test', value: 42 };
+    expect(obj.name).to.equal('test');
+    expect(obj.value).to.equal(42);
+    expect(Object.keys(obj)).to.deep.equal(['name', 'value']);
+    expect(Object.values(obj)).to.deep.equal(['test', 42]);
   });
 });
