@@ -1,0 +1,12 @@
+import { getGreeting } from '../support/app.po';
+
+describe('@cypress-atomizer/web-e2e - Page Structure Test 34', () => {
+  beforeEach(() => cy.visit('/'));
+
+  it('should verify proper page structure', () => {
+    cy.login('structure34@test.com', 'structure34123');
+    cy.get('div').should('exist');
+    cy.get('ul').should('exist');
+    cy.get('li').should('have.length.at.least', 2);
+  });
+});
