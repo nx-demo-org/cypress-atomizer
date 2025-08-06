@@ -27,7 +27,7 @@ jobs:
       # Set the base and head SHAs for Nx Cloud
       - uses: nrwl/nx-set-shas@v4
       
-      - run: npx nx start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
+      - run: npx nx start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="e2e-ci"
 
       # Cache node_modules
       - uses: actions/setup-node@v4
