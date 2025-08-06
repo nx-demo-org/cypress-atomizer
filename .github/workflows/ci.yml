@@ -13,14 +13,14 @@ permissions:
 jobs:
   main:
     runs-on: ubuntu-latest
-    env:
-      NX_CLOUD_API: https://staging.nx.app
     steps:
       - uses: actions/checkout@v4
         with:
           filter: tree:0
           fetch-depth: 0
-
+      - name: Set SHAs
+        uses: nrwl/nx-set-shas@v4
+    
       # This enables task distribution via Nx Cloud
       # Run this command as early as possible, before dependencies are installed
       # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#npx-nxcloud-startcirun

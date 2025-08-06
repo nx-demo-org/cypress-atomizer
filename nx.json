@@ -76,6 +76,5 @@
       "component": { "style": "css" },
       "library": { "style": "css", "linter": "eslint" }
     }
-  },
-  "nxCloudUrl": "https://staging.nx.app"
+  }
 }
