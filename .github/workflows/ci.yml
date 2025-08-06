@@ -19,12 +19,6 @@ jobs:
           filter: tree:0
           fetch-depth: 0
 
-      # Install Xvfb and other required dependencies
-      - name: Install Xvfb and dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y xvfb x11-utils xauth
-
       # This enables task distribution via Nx Cloud
       # Run this command as early as possible, before dependencies are installed
       # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#npx-nxcloud-startcirun
@@ -32,9 +26,6 @@ jobs:
 
       # Set the base and head SHAs for Nx Cloud
       - uses: nrwl/nx-set-shas@v4
-      - run: |
-          echo "BASE: ${{ steps.setSHAs.outputs.base }}"
-          echo "HEAD: ${{ steps.setSHAs.outputs.head }}"
       
       - run: npx nx start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
 
