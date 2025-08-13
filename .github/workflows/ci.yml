@@ -41,11 +41,6 @@ jobs:
           fi
           sudo apt-get update && sudo apt-get install -y xvfb
 
-      - run: |
-          echo "DISPLAY=:99" >> $NX_CLOUD_ENV
-          echo "ELECTRON_DISABLE_SANDBOX=1" >> $NX_CLOUD_ENV
-          echo "CYPRESS_CACHE_FOLDER=/tmp/.cypress" >> $NX_CLOUD_ENV
-
       - run: npx nx start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
         env:
           DISPLAY: ":99"
