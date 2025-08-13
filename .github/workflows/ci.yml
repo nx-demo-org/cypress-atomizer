@@ -10,9 +10,6 @@ permissions:
   actions: read
   contents: read
 
-env:
-    DISPLAY: ":99"
-
 jobs:
   main:
     runs-on: ubuntu-latest
@@ -29,16 +26,29 @@ jobs:
 
       # Set the base and head SHAs for Nx Cloud
       - uses: nrwl/nx-set-shas@v4
-      # Set up environment variables for Cypress and Xvfb
+      
+      - name: Set environment variables
+        run: |
+          if [ -n "$NX_CLOUD_ENV" ]; then
+            echo "DISPLAY=:99" >> $NX_CLOUD_ENV
+            echo "ELECTRON_DISABLE_SANDBOX=1" >> $NX_CLOUD_ENV
+            echo "CYPRESS_CACHE_FOLDER=/tmp/.cypress" >> $NX_CLOUD_ENV
+          else
+            echo "Running in GitHub Actions, setting env vars directly"
+            export DISPLAY=:99
+            export ELECTRON_DISABLE_SANDBOX=1
+            export CYPRESS_CACHE_FOLDER=/tmp/.cypress
+          fi
+          sudo apt-get update && sudo apt-get install -y xvfb
+
       - run: |
           echo "DISPLAY=:99" >> $NX_CLOUD_ENV
           echo "ELECTRON_DISABLE_SANDBOX=1" >> $NX_CLOUD_ENV
           echo "CYPRESS_CACHE_FOLDER=/tmp/.cypress" >> $NX_CLOUD_ENV
 
-      # Start Xvfb for running Cypress tests
-      - run: |
-          Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
       - run: npx nx start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
+        env:
+          DISPLAY: ":99"
 
       # Cache node_modules
       - uses: actions/setup-node@v4
